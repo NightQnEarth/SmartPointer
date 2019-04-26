@@ -1,12 +1,13 @@
 #ifndef SMARTPOINTER_SMARTPOINTER_H
 #define SMARTPOINTER_SMARTPOINTER_H
 
+#include <cstddef>
 
 template <typename T>
 class SmartPointer
 {
 public:
-    SmartPointer(T* basePointer);
+    explicit SmartPointer(T* basePointer);
     ~SmartPointer();
     SmartPointer(const SmartPointer<T>& otherPointer);
     SmartPointer<T>& operator= (const SmartPointer<T>& otherPointer);
@@ -18,7 +19,8 @@ public:
     void Release();
 
 private:
-    T* basePointer;
+    T* basePointer = nullptr;
+    size_t& pointersCount;
 };
 
 
