@@ -1,7 +1,7 @@
 project(SmartPointerLib)
 
 set(HEADER_FILES
-        SmartPointer.h)
+        )
 
 set(SOURCE_FILES
         SmartPointer.cpp)

@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include <gmock/gmock.h>
-#include "../SmartPointerLib/SmartPointer.h"
+//#include "../SmartPointerLib/SmartPointer.h"
 #include "../SmartPointerLib/SmartPointer.cpp"
 
 class TestClass
@@ -34,7 +34,7 @@ public:
     }
 };
 
-TEST(SmartPointerTest, EmptyTests)
+TEST(SmartPointerTests, EmptyTests)
 {
     SmartPointer<TestClass> p1(new TestClass(5));
     SmartPointer<TestClass> p2(new TestClass(10));
