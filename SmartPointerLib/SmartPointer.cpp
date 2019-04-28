@@ -1,5 +1,5 @@
-#ifndef SMARTPOINTER_SMARTPOINTER_H
-#define SMARTPOINTER_SMARTPOINTER_H
+#ifndef SMARTPOINTER_SMARTPOINTER_CPP
+#define SMARTPOINTER_SMARTPOINTER_CPP
 
 #include <cstddef>
 #include <iostream>
@@ -32,13 +32,13 @@ public:
 
     T* const operator->() const
     {
-        if (basePointer == nullptr) throw std::runtime_error(nullptrErrorMessage);
+        if (basePointer == nullptr) throw std::runtime_error(NullptrErrorMessage);
         return basePointer;
     }
 
     T& operator*() const
     {
-        if (basePointer == nullptr) throw std::runtime_error(nullptrErrorMessage);
+        if (basePointer == nullptr) throw std::runtime_error(NullptrErrorMessage);
         return *basePointer;
     }
 
@@ -57,7 +57,7 @@ public:
 
     void Release()
     {
-        if (basePointer == nullptr) throw std::runtime_error(nullptrErrorMessage);
+        if (basePointer == nullptr) throw std::runtime_error(NullptrErrorMessage);
 
         if (--(*pointersCount) == 0)
         {
@@ -71,7 +71,7 @@ public:
     }
 
 private:
-    const char* nullptrErrorMessage = "Instance points to nullptr.";
+    const char* NullptrErrorMessage = "Instance points to nullptr.";
 
     T* basePointer = nullptr;
     size_t* pointersCount = new size_t(1);
@@ -87,4 +87,4 @@ private:
 };
 
 
-#endif //SMARTPOINTER_SMARTPOINTER_H
+#endif //SMARTPOINTER_SMARTPOINTER_CPP
