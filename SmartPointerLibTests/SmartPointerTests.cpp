@@ -65,7 +65,6 @@ TEST(SmartPointer, CopyConstructor)
     rewriteMap(1);
     {
         SmartPointer<TestClass> p1(new TestClass(0));
-
         SmartPointer<TestClass> p2(p1);
     }
 
@@ -132,4 +131,7 @@ TEST(SmartPointer, Release)
         ASSERT_THROW(p1->number, std::runtime_error);
         ASSERT_EQ(p2->number, 0);
     }
+
+    for (auto pair : CreatedObjectsMap)
+        ASSERT_FALSE(pair.second);
 }
